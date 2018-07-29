@@ -1,0 +1,69 @@
+﻿5C00	23552	Used in reading the keyboard	N8	KSTATE	Used in reading the keyboard.
+5C08	23560	Last key pressed	Nl	LAST K	Stores newly pressed key.
+5C09	23561	Time that a key must be held down before it repeats	1	REPDEL	Time (in 50ths of a second in 60ths of a second in N. America) that a key must be held down before it repeats. This starts off at 35, but you can POKE in other values.
+5C0A	23562	Delay between successive repeats of a key held down	1	REPPER	Delay (in 50ths of a second in 60ths of a second in N. America) between successive repeats of a key held down: initially 5.
+5C0B	23563	Address of arguments of user defined function	N2	DEFADD	Address of arguments of user defined function if one is being evaluated; otherwise 0.
+5C0D	23565	Second byte of colour controls entered from keyboard	Nl	K DATA	Stores 2nd byte of colour controls entered from keyboard .
+5C0E	23566	Colour, AT and TAB controls going to television	N2	TVDATA	Stores bytes of coiour, AT and TAB controls going to television.
+5C10	23568	Addresses of channels attached to streams	X38	STRMS	Addresses of channels attached to streams.
+5C36	23606	256 less than address of character set	2	CHARS	256 less than address of character set (which starts with space and carries on to the copyright symbol). Normally in ROM, but you can set up your own in RAM and make CHARS point to it.
+5C38	23608	Length of warning buzz	1	RASP	Length of warning buzz.
+5C39	23609	Length of keyboard click	1	PIP	Length of keyboard click.
+5C3A	23610	One less than the error report code	1	ERR NR	1 less than the report code. Starts off at 255 (for 1) so PEEK 23610 gives 255.
+5C3B	23611	Various flags to control the BASIC system	X1	FLAGS	Various flags to control the BASIC system.
+5C3C	23612	Flags associated with the television	X1	TV FLAG	Flags associated with the television.
+5C3D	23613	Address of item on machine stack to use as error return	X2	ERR SP	Address of item on machine stack to be used as error return.
+5C3F	23615	Return address from automatic listing	N2	LIST SP	Address of return address from automatic listing.
+5C41	23617	Specifies K, L, C, E or G cursor	N1	MODE	Specifies K, L, C. E or G cursor.
+5C42	23618	Line to be jumped to	2	NEWPPC	Line to be jumped to.
+5C44	23620	Statement number in line to be jumped to	1	NSPPC	Statement number in line to be jumped to. Poking first NEWPPC and then NSPPC forces a jump to a specified statement in a line.
+5C45	23621	Line number of statement being executed	2	PPC	Line number of statement currently being executed.
+5C47	23623	Number within line of statement being executed	1	SUBPPC	Number within line of statement being executed.
+5C48	23624	Border colour	1	BORDCR	Border colour * 8; also contains the attributes normally used for the lower half of the screen.
+5C49	23625	Number of current line	2	E PPC	Number of current line (with program cursor).
+5C4B	23627	Address of variables	X2	VARS	Address of variables.
+5C4D	23629	Address of variable in assignment	N2	DEST	Address of variable in assignment.
+5C4F	23631	Address of channel data	X2	CHANS	Address of channel data.
+5C51	23633	Address of information used for input and output	X2	CURCHL	Address of information currently being used for input and output.
+5C53	23635	Address of BASIC program	X2	PROG	Address of BASIC program.
+5C55	23637	Address of next line in program	X2	NXTLIN	Address of next line in program.
+5C57	23639	Address of terminator of last DATA item	X2	DATADD	Address of terminator of last DATA item.
+5C59	23641	Address of command being typed in	X2	E LINE	Address of command being typed in.
+5C5B	23643	Address of cursor	2	K CUR	Address of cursor.
+5C5D	23645	Address of the next character to be interpreted	X2	CH ADD	Address of the next character to be interpreted: the character after the argument of PEEK, or the NEWLINE at the end of a POKE statement.
+5C5F	23647	Address of the character after the '?' marker	2	X PTR	Address of the character after the ? marker.
+5C61	23649	Address of temporary work space	X2	WORKSP	Address of temporary work space.
+5C63	23651	Address of bottom of calculator stack	X2	STKBOT	Address of bottom of calculator stack.
+5C65	23653	Address of start of spare space	X2	STKEND	Address of start of spare space.
+5C67	23655	Calculator's B register	N1	BREG	Calculator's b register.
+5C68	23656	Address of area used for calculator's memory	N2	MEM	Address of area used for calculator's memory. (Usually MEMBOT, but not always.)
+5C6A	23658	More flags	1	FLAGS2	More flags.
+5C6B	23659	The number of lines in the lower part of the screen	X1	DF SZ	The number of lines (including one blank line) in the lower part of the screen.
+5C6C	23660	The number of the top program line in automatic listings	2	S TOP	The number of the top program line in automatic listings.
+5C6E	23662	Line number to which CONTINUE jumps	2	OLDPPC	Line number to which CONTINUE jumps.
+5C70	23664	Number within line of statement to which CONTINUE jumps	1	OSPCC	Number within line of statement to which CONTINUE jumps.
+5C71	23665	Various flags	N1	FLAGX	Various flags.
+5C72	23666	Length of string type destination in assignment	N2	STRLEN	Length of string type destination in assignment.
+5C74	23668	Address of next item in parameter table	N2	T ADDR	Address of next item in syntax table (very unlikely to be useful).
+5C76	23670	The seed for RND	2	SEED	The seed for RND. This is the variable that is set by RANDOMIZE.
+5C78	23672	Frame counter	3	FRAMES	3 byte (least significant first), frame counter. Incremented every 20ms. See Chapter 18.
+5C7B	23675	Address of first user defined graphic	2	UDG	Address of 1st user defined graphic You can change this for instance to save space by having fewer user defined graphics.
+5C7D	23677	Coordinates of last point plotted	1	COORDS	x-coordinate of last point plotted.
+5C7F	23679	Column number of printer position	1	P POSN	33 column number of printer position
+5C80	23680	Address of next position for LPRINT to print at	X2	PR CC	Full address of next position for LPRINT to print at (in ZX printer buffer). Legal values 5B00 - 5B1F. [Not used in 128K mode or when certain peripherals are attached]
+5C82	23682	Column and line number of end of input buffer	2	ECHO E	33 column number and 24 line number (in lower half) of end of input buffer.
+5C84	23684	Address in display file of PRINT position	2	DF CC	Address in display file of PRINT position.
+5C86	23686	Like DF-CC for lower part of screen	2	DF CCL	Like DF CC for lower part of screen.
+5C88	23688	Column and line number for PRINT position	X1	S POSN	33 column number for PRINT position
+5C8A	23690	Like S-POSN for lower part of screen	X2	S POSNL	Like S POSN for lower part
+5C8C	23692	Scroll counter	1	SCR CT	Counts scrolls: it is always 1 more than the number of scrolls that will be done before stopping with scroll? If you keep poking this with a number bigger than 1 (say 255), the screen will scroll on and on without asking you.
+5C8D	23693	Permanent current colours	1	ATTR P	Permanent current colours, etc (as set up by colour statements).
+5C8E	23694	Used for transparent colours	1	MASK P	Used for transparent colours, etc. Any bit that is 1 shows that the corresponding attribute bit is taken not from ATTR P, but from what is already on the screen.
+5C8F	23695	Temporary current colours	N1	ATTR T	Temporary current colours, etc (as set up by colour items).
+5C90	23696	Temporary transparent colours	N1	MASK T	Like MASK P, but temporary.
+5C91	23697	More flags	1	P FLAG	More flags.
+5C92	23698	Calculator's memory area	N30	MEMBOT	Calculator's memory area; used to store numbers that cannot conveniently be put on the calculator stack.
+5CB0	23728	Non-maskable interrupt address	2	NMIADD	This is the address of a user supplied NMI address which is read by the standard ROM when a peripheral activates the NMI. Probably intentionally disabled so that the effect is to perform a reset if both locations hold zero, but do nothing if the locations hold a non-Interface 1's with serial number greater than 87315 will initialize these locations to 0 and 80 to allow the RS232 "T" channel to use a variable line width. 23728 is the current print position and 23729 the width - default 80.zero value.
+5CB2	23730	Address of last byte of BASIC system area	2	RAMTOP	Address of last byte of BASIC system area.
+5CB4	23732	Address of last byte of physical RAM	2	P RAMT	Address of last byte of physical RAM.
+5CB6	23734	Channel information	21	CHANNELS	
