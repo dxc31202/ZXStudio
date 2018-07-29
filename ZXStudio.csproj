@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CC90ED78-D93C-4FD6-851A-C7064ACD1475}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZXStudio</RootNamespace>
+    <AssemblyName>ZXStudio</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Machine\Images\ZXMachine48k.png.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ScintillaNET FindReplaceDialog, Version=1.3.0.14840, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLLs\ScintillaNET FindReplaceDialog.dll</HintPath>
+    </Reference>
+    <Reference Include="ScintillaNET, Version=3.5.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLLs\ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="SlimDX, Version=4.0.13.43, Culture=neutral, PublicKeyToken=b1b0c32fd1ffe4f9, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\SlimDX\v4.0_4.0.13.43__b1b0c32fd1ffe4f9\SlimDX.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assembler\Assembler.cs" />
+    <Compile Include="Assembler\Directives\DEFB.cs" />
+    <Compile Include="Assembler\Directives\DEFG.cs" />
+    <Compile Include="Assembler\Directives\DEFM.cs" />
+    <Compile Include="Assembler\Directives\DEFS.cs" />
+    <Compile Include="Assembler\Directives\DEFW.cs" />
+    <Compile Include="Assembler\Directives\END.cs" />
+    <Compile Include="Assembler\Directives\ENTRY.cs" />
+    <Compile Include="Assembler\Directives\EQU.cs" />
+    <Compile Include="Assembler\Directives\ORG.cs" />
+    <Compile Include="Assembler\Enums.cs" />
+    <Compile Include="Assembler\Error.cs" />
+    <Compile Include="Assembler\Helpers.cs" />
+    <Compile Include="Assembler\Opcodes\ADC.cs" />
+    <Compile Include="Assembler\Opcodes\ADD.cs" />
+    <Compile Include="Assembler\Opcodes\AND.cs" />
+    <Compile Include="Assembler\Opcodes\BITSETRES.cs" />
+    <Compile Include="Assembler\Opcodes\CALL.cs" />
+    <Compile Include="Assembler\Opcodes\CP.cs" />
+    <Compile Include="Assembler\Opcodes\DJNZ.cs" />
+    <Compile Include="Assembler\Opcodes\EX.cs" />
+    <Compile Include="Assembler\Opcodes\IM.cs" />
+    <Compile Include="Assembler\Opcodes\IN.cs" />
+    <Compile Include="Assembler\Opcodes\INCDEC.cs" />
+    <Compile Include="Assembler\Opcodes\JP.cs" />
+    <Compile Include="Assembler\Opcodes\JR.cs" />
+    <Compile Include="Assembler\Opcodes\LD.cs" />
+    <Compile Include="Assembler\Opcodes\OR.cs" />
+    <Compile Include="Assembler\Opcodes\OUT.cs" />
+    <Compile Include="Assembler\Opcodes\PUSHPOP.cs" />
+    <Compile Include="Assembler\Opcodes\RET.cs" />
+    <Compile Include="Assembler\Opcodes\ROTATESHIFT.cs" />
+    <Compile Include="Assembler\Opcodes\RST.cs" />
+    <Compile Include="Assembler\Opcodes\SBC.cs" />
+    <Compile Include="Assembler\Opcodes\SUB.cs" />
+    <Compile Include="Assembler\Opcodes\XOR.cs" />
+    <Compile Include="Assembler\ProcessDirectives.cs" />
+    <Compile Include="Assembler\ProcessOpcodes.cs" />
+    <Compile Include="Assembler\SymbolTable.cs" />
+    <Compile Include="Assembler\Tokenizer\Functions.cs" />
+    <Compile Include="Assembler\Tokenizer\LexicalRule.cs" />
+    <Compile Include="Assembler\Tokenizer\Parser.cs" />
+    <Compile Include="Assembler\Tokenizer\Token.cs" />
+    <Compile Include="Assembler\Tokenizer\Tokenizer.cs" />
+    <Compile Include="Assembler\Tokenizer\Z80Lexer.cs" />
+    <Compile Include="Assembler\WindowsMessages.cs" />
+    <Compile Include="Controls\Class1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Class2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Class3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\FileBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ComboFilebar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DiskItem.cs" />
+    <Compile Include="Controls\DiskReader.cs" />
+    <Compile Include="Controls\FastLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\FolderListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HexView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\IconListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ImageToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\FileListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ListViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NativeMethods.cs" />
+    <Compile Include="Controls\PIDL.cs" />
+    <Compile Include="Controls\ScintillaZ80.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ScintillaZ80Monitor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ShellContextMenu.cs" />
+    <Compile Include="Controls\ShellFolder.cs" />
+    <Compile Include="Controls\SystemImageList.cs" />
+    <Compile Include="Controls\TabControlEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Thumbnail.cs" />
+    <Compile Include="Controls\TreeMapEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TreeMapItem.cs" />
+    <Compile Include="Controls\Treemap\ColorScheme.cs" />
+    <Compile Include="Controls\Treemap\DefaultValue.cs" />
+    <Compile Include="Controls\Treemap\SplitBySlice.cs" />
+    <Compile Include="Controls\Treemap\SplitSquarified.cs" />
+    <Compile Include="Controls\Treemap\SplitStrategy.cs" />
+    <Compile Include="Controls\Treemap\Treemap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Treemap\TreeMap.Designer.cs">
+      <DependentUpon>Treemap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Treemap\TreemapNode.cs" />
+    <Compile Include="Controls\Treemap\Value.cs" />
+    <Compile Include="Controls\FolderTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Events\EventArgs.cs" />
+    <Compile Include="Events\EventHandlers.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Machine\Sound.cs" />
+    <Compile Include="Machine\SystemVariables.cs" />
+    <Compile Include="MicroStopwatch.cs" />
+    <Compile Include="Disassembler\CallMode.cs" />
+    <Compile Include="Disassembler\CBPrefix.cs" />
+    <Compile Include="Disassembler\DDCBPrefix.cs" />
+    <Compile Include="Disassembler\DDPrefix.cs" />
+    <Compile Include="Disassembler\Disassembler.cs" />
+    <Compile Include="Disassembler\EDPrefix.cs" />
+    <Compile Include="Disassembler\FDCBPrefix.cs" />
+    <Compile Include="Disassembler\FDPrefix.cs" />
+    <Compile Include="Disassembler\NoPrefix.cs" />
+    <Compile Include="Disassembler\OpcodeProperty.cs" />
+    <Compile Include="Disassembler\Opcodes.cs" />
+    <Compile Include="Disassembler\SourceLine.cs" />
+    <Compile Include="Assembler\AssemblerEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assembler\AssemblerEditor.designer.cs">
+      <DependentUpon>AssemblerEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpenDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenDialog.Designer.cs">
+      <DependentUpon>OpenDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Z80.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Globals.cs" />
+    <Compile Include="IMemory.cs" />
+    <Compile Include="Machine\Keyboard.cs" />
+    <Compile Include="Machine\Machine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Disassembler\Monitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Disassembler\Monitor.Designer.cs">
+      <DependentUpon>Monitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Machine\ScreenMap.cs" />
+    <Compile Include="Machine\ScreenTables.cs" />
+    <Compile Include="Machine\SNALoader.cs" />
+    <Compile Include="Machine\TAPBlock.cs" />
+    <Compile Include="Machine\TAPFile.cs" />
+    <Compile Include="Machine\Z80Loader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="48.rom">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="app.config" />
+    <None Include="CompleteSpectrumROMDisassemblyThe.pdf" />
+    <None Include="DLLs\SlimDX Runtime .NET 4.0 x86 %28January 2012%29.msi" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Treemap\TreeMap.resx">
+      <DependentUpon>Treemap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Disassembler\Monitor.resx">
+      <DependentUpon>Monitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenDialog.resx">
+      <DependentUpon>OpenDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assembler\AssemblerEditor.resx">
+      <DependentUpon>AssemblerEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\Treemap\ColorScheme.xml" />
+    <Content Include="Disassembler\favicon256x256.ico" />
+    <Content Include="Disassembler\XRefAddress.txt" />
+    <Content Include="Disassembler\XRefAll.txt" />
+    <Content Include="Disassembler\XRefData.txt" />
+    <Content Include="Disassembler\XRefFPRoutines.txt" />
+    <Content Include="Disassembler\XRefLabels.txt" />
+    <Content Include="Disassembler\XRefMessages.txt" />
+    <Content Include="Disassembler\XRefSystemVariables.txt" />
+    <Content Include="DLLs\CounterLib.dll" />
+    <Content Include="DLLs\license.txt" />
+    <Content Include="DLLs\MouseKeyboardActivityMonitor.dll" />
+    <Content Include="DLLs\pplStuff.Controls.ToolBox.dll" />
+    <Content Include="DLLs\ScintillaNET FindReplaceDialog.dll" />
+    <Content Include="DLLs\ScintillaNET.dll" />
+    <Content Include="DLLs\WeifenLuo.WinFormsUI.Docking.dll" />
+    <Content Include="DLLs\WeifenLuo.WinFormsUI.Docking.ThemeVS2003.dll" />
+    <Content Include="DLLs\WeifenLuo.WinFormsUI.Docking.ThemeVS2005Multithreading.dll" />
+    <Content Include="DLLs\WeifenLuo.WinFormsUI.Docking.ThemeVS2012.dll" />
+    <Content Include="DLLs\WeifenLuo.WinFormsUI.Docking.ThemeVS2013.dll" />
+    <Content Include="DLLs\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll" />
+    <Content Include="Images\112_Tick_Green_32x32_72.png" />
+    <Content Include="Images\2000px-Simple_Monitor_Icon.svg.png" />
+    <Content Include="Images\2000px-Simple_Monitor_Icon.svg.png.ico" />
+    <Content Include="Images\499-512.png" />
+    <Content Include="Images\asm.png" />
+    <Content Include="Images\bookmark_Red_16xLG.png" />
+    <Content Include="Images\Browser.png" />
+    <Content Include="Images\CloseSolution_48x.png" />
+    <Content Include="Images\compiler.png" />
+    <Content Include="Images\compile_build_rebuild_make-512.png" />
+    <Content Include="Images\Cross.png" />
+    <Content Include="Images\DebugFaster.png" />
+    <Content Include="Images\DebugSlower.png" />
+    <Content Include="Images\decreased_proportionally_square_button-512.png" />
+    <Content Include="Images\disassembler.png" />
+    <Content Include="Images\DockPaneStrip_ScrollLeftDisabled.png" />
+    <Content Include="Images\DockPaneStrip_ScrollLeftEnabled.png" />
+    <Content Include="Images\DockPane_AutoHide.png" />
+    <Content Include="Images\DockPane_Close.png" />
+    <Content Include="Images\DockPane_Dock.png" />
+    <Content Include="Images\Faster.png" />
+    <Content Include="Images\gear_32xLG.png" />
+    <Content Include="Images\GreenFlag.png" />
+    <Content Include="Images\HideListing.png" />
+    <Content Include="Images\IDE01.png" />
+    <Content Include="Images\increased_proportionally_square_button-512.png" />
+    <Content Include="Images\LeftArrow.png" />
+    <Content Include="Images\linenumberes.png" />
+    <Content Include="Images\map-512.png" />
+    <Content Include="Images\map-go-512.png" />
+    <Content Include="Images\mouse-click-512-green.png" />
+    <Content Include="Images\mouse-click-512-red.png" />
+    <Content Include="Images\NewFile.png" />
+    <Content Include="Images\NewProject.png" />
+    <Content Include="Images\Normal.png" />
+    <Content Include="Images\open-folder-with-document_318-48982.png" />
+    <Content Include="Images\OpenFolder_32x.png" />
+    <Content Include="Images\OpenProject.png" />
+    <Content Include="Images\Output.png" />
+    <Content Include="Images\PauseHS.png" />
+    <Content Include="Images\PlayHS.png" />
+    <Content Include="Images\PlayStep_ActionGrey_32x.png" />
+    <Content Include="Images\Poke.png" />
+    <Content Include="Images\Project.png" />
+    <Content Include="Images\PropertyBackground.png" />
+    <Content Include="Images\PropertyHighlight.png" />
+    <Content Include="Images\RedFlag.png" />
+    <Content Include="Images\Restart1green.png" />
+    <Content Include="Images\Restart1red.png" />
+    <Content Include="Images\RightArrow.png" />
+    <Content Include="Images\SaveAll_32x.png" />
+    <Content Include="Images\SaveAs_16x.png" />
+    <Content Include="Images\Save_32x.png" />
+    <Content Include="Images\Separator.png" />
+    <Content Include="Images\ShowListing.png" />
+    <Content Include="Images\spreadsheet.png" />
+    <Content Include="Images\spreadsheetclose.png" />
+    <Content Include="Images\stepout.png" />
+    <Content Include="Images\stepovr.png" />
+    <Content Include="Images\Step_32xLG.png" />
+    <Content Include="Images\Tick.png" />
+    <Content Include="Images\up-folder-icon-54527.png" />
+    <Content Include="Images\UpArrow.png" />
+    <Content Include="Images\UpArrowHilight.png" />
+    <Content Include="Images\Zilog.ico" />
+    <Content Include="Images\Zilog.png" />
+    <Content Include="Images\Zilog.png.ico" />
+    <Content Include="Images\zilog1.png" />
+    <Content Include="Images\zilog1.png.ico" />
+    <Content Include="Images\ZXMachine48k.png.ico" />
+    <Content Include="Machine\CharacterSet.txt" />
+    <Content Include="Machine\Images\ZXMachine48k.png.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZXCassettDeck\ZXCassettDeck.csproj">
+      <Project>{4a0c0890-4a21-4ea2-98aa-1c2c71454fb5}</Project>
+      <Name>ZXCassettDeck</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
